@@ -14,4 +14,10 @@ pkg install pip-python
 pkg install tigervnc
 pkg install fluxbox
 pkg install pulseaudio
-
+pkg install micro
+pkg install neofetch
+pkg install tmux
+git clone https://github.com/adi1090x/termux-style
+cd termux-style
+./install
+echo instalation complete!
