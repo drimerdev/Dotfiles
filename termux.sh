@@ -9,5 +9,9 @@ echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
 exec zsh
 pkg install elinks
 pkg install emacs
-pkg update -y && pkg install wget curl proot tar -y && wget https://raw.githubusercontent.com/AndronixApp/AndronixOrigin/master/Installer/Arch/armhf/arch.sh -O arch.sh && chmod +x arch.sh && bash arch.sh
+pkg install python3
+pkg install pip-python
+pkg install tigervnc
+pkg install fluxbox
+pkg install pulseaudio
 
