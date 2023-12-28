@@ -20,19 +20,25 @@ git clone https://github.com/drimerdev/Dotfiles.git
 # aplaying themes
 
 # i3wm config
-cp /home/Dotfiles/i3/config  /home/.config/i3/config
+cp -f /home/Dotfiles/i3/config  /home/.config/i3/config
 
 # neovim config
-cp /home/Dotfiles/neovim/init.lua  /home/.config/nvim/init.lua
+cp -f /home/Dotfiles/neovim/init.lua  /home/.config/nvim/init.lua
 
 # ohmyzsh installer
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # zsh config
 
-cp /home/Dotfiles/zsh/.zshrc  /home/.zshrc
+cp -f /home/Dotfiles/zsh/.zshrc  /home/.zshrc
 
 # terminals, tools and extras
 sudo pacman -S --noconfirm gnome-terminal npm cmatrix python-pip
+
+# configure git credentials
+
+git config --global user.email miguelvicente18@aol.com
+
+git config --global user.name drimerdev
 
 echo Instalation complete!
