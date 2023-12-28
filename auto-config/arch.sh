@@ -1,12 +1,38 @@
 #!/bin/bash
 
-echo starting instalation . . .
-sudo pacman -Sy
-sudo pacman -S zsh neofetch micro elinks tmux python-pip emacs git
+read -p "Are you sure you want to continue? (y/n): " response
+
+if [[ "$response" =~ ^[Yy]$ ]]; then
+    echo "Confirmed. Proceeding..."
+    # Add your code here for the actions after confirmation
+else
+    echo "Operation canceled."
+fi
+
+sudo pacman -Syu
+sudo pacman -S  --noconfirm i3-gaps dmenu firefox nodejs-lts neofetch neovim lolcat htop python3 git zsh
+
+echo "exec i3" > ~/.xinitrc
+
+# cloning configuration files repo
+git clone https://github.com/drimerdev/Dotfiles.git
+
+# aplaying themes
+
+# i3wm config
+cp /home/Dotfiles/i3/config  /home/.config/i3/config
+
+# neovim config
+cp /home/Dotfiles/neovim/init.lua  /home/.config/nvim/init.lua
+
+# ohmyzsh installer
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshr
-exec zsh
-chsh -s zsh
-git clone --depth 1 https://github.com/m3tozz/NeoCat.git && cd NeoCat && bash ./neocat.sh --install
-sudo pacman -S i3-gaps waybar
-echo instalation complete!
+
+# zsh config
+
+cp /home/Dotfiles/zsh/.zshrc  /home/.zshrc
+
+# terminals, tools and extras
+sudo pacman -S --noconfirm gnome-terminal npm cmatrix python-pip
+
+echo Instalation complete!
