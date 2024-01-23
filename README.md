@@ -3,5 +3,7 @@
 - termux
 - desktop cli
 - packages
-## other repo install script
+- neovim config
+- shell config
+## other cool install script
 https://github.com/alechilczenko/old-dotfiles/
